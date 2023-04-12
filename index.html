@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="true">
+    <meta name = "format-detection" content = "telephone=no">
+
+    <title>Pamela Gonzales</title></title>
+
+	<!-- Styles -->
+   <style>
+    * {
+    padding: 1000;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+  }
+
+  body {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  button {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 4rem;
+    width: 10rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 1px 1px 5px black;
+    color: black;
+    background: #000;
+    cursor: pointer;
+
+  }
+  #runaway-btn{
+    padding: 25px 25px;
+    width: fit-content;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-weight: bold;
+    color: black;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+
+  #non{
+    padding: 15px 25px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-weight:  bold;
+    color: black;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  #non:hover {background-color: #3e8e41}
+
+#non:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+}
+  #container{
+    background-color: rgb(0, 0, 0);
+    /*border: 1px solid black;*/
+    outline-style:  solid;
+    outline-color: transparent;     /* rgb(0, 0, 255); /* blue */
+    width: fit-content;
+    padding: 10px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 8px;
+  }
+  h1
+  {
+    font-size: 50px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+   </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Pwede ba manligaw?</h1>
+  </div>
+    <button id='non'>YEEES</button>
+    <button id='runaway-btn'>NO</button>
+ <!-- Scripts -->
+ <script>
+    const button = document.getElementById("runaway-btn");
+
+const animateMove = (element, prop, pixels) =>
+  anime({
+    targets: element,
+    [prop]: `${pixels}px`,
+    easing: "easeOutCirc"
+  });
+
+["mouseover", "click"].forEach(function (el) {
+  button.addEventListener(el, function (event) {
+    const top = getRandomNumber(window.innerHeight - this.offsetHeight);
+    const left = getRandomNumber(window.innerWidth - this.offsetWidth);
+
+    animateMove(this, "left", left).play();
+    animateMove(this, "top", top).play();
+  });
+});
+
+const getRandomNumber = (num) => {
+  return Math.floor(Math.random() * (num + 1));
+};
+
+ </script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
+</body>
+</html>
